@@ -16,13 +16,24 @@ to the caller after the last call.
 The transaction manager needs to be approved to access ERC20 tokens.
 Because of that, the transaction manager can be used only by its owner. 
 
+Prerequisites
+=============
+Install DappHub Toolkit https://dapp.tools/
+```
+$ curl https://nixos.org/nix/install | sh
+$ . "$HOME/.nix-profile/etc/profile.d/nix.sh"
+$ nix-env -if https://github.com/cachix/cachix/tarball/master --substituters https://cachix.cachix.org --trusted-public-keys cachix.cachix.org-1:eWNHQldwUO7G2VkjpnjDbWwy4KQ/HNxht7H4SSoMckM=
+$ cachix use dapp
+$ git clone --recursive https://github.com/dapphub/dapptools $HOME/.dapp/dapptools
+$ nix-env -f $HOME/.dapp/dapptools -iA dapp seth solc hevm ethsign
+```
 
 Contract deployment
 ===================
 
 The `TxManager` contract takes no parameters.
 
-Use Dapp (<https://github.com/dapphub/dapp>) to build and deploy
+Use Dapp to build and deploy
 the contract:
 
 ```bash
